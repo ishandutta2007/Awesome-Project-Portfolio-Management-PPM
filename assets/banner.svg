@@ -1,0 +1,155 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 280" width="100%" height="280" style="background:#0b0f19;border-radius:12px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0e1a" />
+      <stop offset="50%" stop-color="#121829" />
+      <stop offset="100%" stop-color="#181735" />
+    </linearGradient>
+
+    <!-- Animated Accent Flow Gradient -->
+    <linearGradient id="flowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.8">
+        <animate attributeName="stop-color" values="#3b82f6;#8b5cf6;#ec4899;#3b82f6" dur="8s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="50%" stop-color="#8b5cf6" stop-opacity="0.9">
+        <animate attributeName="stop-color" values="#8b5cf6;#ec4899;#06b6d4;#8b5cf6" dur="8s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.8">
+        <animate attributeName="stop-color" values="#06b6d4;#3b82f6;#8b5cf6;#06b6d4" dur="8s" repeatCount="indefinite" />
+      </stop>
+    </linearGradient>
+
+    <!-- Subtle Grid Pattern -->
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#334155" stroke-width="0.5" stroke-opacity="0.25" />
+    </pattern>
+
+    <!-- Glowing Filter -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <style>
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.35; transform: scale(1); }
+      50% { opacity: 0.65; transform: scale(1.03); }
+    }
+    @keyframes floatOrb1 {
+      0%, 100% { transform: translate(0px, 0px); }
+      50% { transform: translate(25px, -15px); }
+    }
+    @keyframes floatOrb2 {
+      0%, 100% { transform: translate(0px, 0px); }
+      50% { transform: translate(-30px, 18px); }
+    }
+    @keyframes dashMove {
+      to { stroke-dashoffset: -40; }
+    }
+    .orb1 { animation: floatOrb1 10s ease-in-out infinite; }
+    .orb2 { animation: floatOrb2 12s ease-in-out infinite; }
+    .pulse-glow { animation: pulseGlow 6s ease-in-out infinite; }
+    .animated-dash { stroke-dasharray: 6, 6; animation: dashMove 2.5s linear infinite; }
+    .title-text { font-size: 34px; font-weight: 800; fill: #ffffff; letter-spacing: -0.5px; }
+    .subtitle-text { font-size: 15px; font-weight: 400; fill: #94a3b8; }
+    .badge-text { font-size: 11px; font-weight: 700; fill: #38bdf8; letter-spacing: 1.2px; text-transform: uppercase; }
+    .pill-label { font-size: 11.5px; font-weight: 500; fill: #cbd5e1; }
+  </style>
+
+  <!-- Background Base -->
+  <rect width="960" height="280" rx="12" fill="url(#bgGrad)" />
+  <rect width="960" height="280" rx="12" fill="url(#grid)" />
+
+  <!-- Dynamic / Animated Background Layer -->
+  <g id="background-dynamics" opacity="0.6">
+    <!-- Glowing Orbs (Behind content) -->
+    <circle class="orb1" cx="820" cy="70" r="130" fill="#6366f1" opacity="0.18" filter="url(#glow)" />
+    <circle class="orb2" cx="140" cy="220" r="110" fill="#06b6d4" opacity="0.15" filter="url(#glow)" />
+    <circle cx="890" cy="210" r="90" fill="#ec4899" opacity="0.12" filter="url(#glow)" />
+
+    <!-- Animated Data Connection Lines & Milestones -->
+    <path class="animated-dash" d="M 600,60 Q 720,30 840,90 T 940,160" fill="none" stroke="#60a5fa" stroke-width="1.8" opacity="0.4" />
+    <path class="animated-dash" d="M 520,220 Q 680,260 810,190 T 920,230" fill="none" stroke="#a855f7" stroke-width="1.8" opacity="0.4" />
+    
+    <!-- Milestone Diamonds -->
+    <polygon points="720,40 726,46 720,52 714,46" fill="#38bdf8" opacity="0.8">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="3s" repeatCount="indefinite" />
+    </polygon>
+    <polygon points="840,90 846,96 840,102 834,96" fill="#ec4899" opacity="0.8">
+      <animate attributeName="opacity" values="1;0.3;1" dur="4s" repeatCount="indefinite" />
+    </polygon>
+    <polygon points="810,190 816,196 810,202 804,196" fill="#a855f7" opacity="0.8">
+      <animate attributeName="opacity" values="0.3;0.9;0.3" dur="3.5s" repeatCount="indefinite" />
+    </polygon>
+
+    <!-- Mini PPM Gantt/Capacity pulse simulation bars in upper-right backdrop -->
+    <rect x="730" y="115" width="160" height="8" rx="4" fill="#334155" opacity="0.5" />
+    <rect x="730" y="115" width="100" height="8" rx="4" fill="url(#flowGrad)" opacity="0.85">
+      <animate attributeName="width" values="80;135;80" dur="5s" repeatCount="indefinite" />
+    </rect>
+    
+    <rect x="700" y="135" width="200" height="8" rx="4" fill="#334155" opacity="0.5" />
+    <rect x="740" y="135" width="120" height="8" rx="4" fill="#10b981" opacity="0.8">
+      <animate attributeName="width" values="100;150;100" dur="6s" repeatCount="indefinite" />
+    </rect>
+
+    <rect x="750" y="155" width="160" height="8" rx="4" fill="#334155" opacity="0.5" />
+    <rect x="750" y="155" width="85" height="8" rx="4" fill="#f59e0b" opacity="0.8">
+      <animate attributeName="width" values="70;110;70" dur="4.5s" repeatCount="indefinite" />
+    </rect>
+  </g>
+
+  <!-- Border Highlight -->
+  <rect x="1" y="1" width="958" height="278" rx="11" fill="none" stroke="url(#flowGrad)" stroke-width="1.8" opacity="0.6" />
+
+  <!-- Foreground Group (Guaranteed 100% visible on top) -->
+  <g id="foreground">
+    <!-- Category Pill Badge -->
+    <g transform="translate(48, 36)">
+      <rect width="270" height="26" rx="13" fill="#0369a1" fill-opacity="0.25" stroke="#0ea5e9" stroke-width="1" />
+      <circle cx="14" cy="13" r="4" fill="#38bdf8">
+        <animate attributeName="r" values="3.5;5;3.5" dur="2s" repeatCount="indefinite" />
+      </circle>
+      <text x="26" y="17" class="badge-text">PORTFOLIO &amp; CAPACITY INTELLIGENCE</text>
+    </g>
+
+    <!-- Main Title -->
+    <text x="48" y="105" class="title-text">
+      Awesome Project Portfolio Management
+    </text>
+
+    <!-- Subtitle / Mission Statement -->
+    <text x="48" y="138" class="subtitle-text">
+      Curated ecosystem of enterprise PPM platforms, open-source governance stacks &amp; capacity planning tools.
+    </text>
+
+    <!-- Bottom Metric / Architecture Pills -->
+    <g transform="translate(48, 185)">
+      <!-- Pill 1: Enterprise SaaS -->
+      <g transform="translate(0, 0)">
+        <rect width="180" height="40" rx="8" fill="#1e293b" fill-opacity="0.85" stroke="#334155" stroke-width="1" />
+        <text x="14" y="25" class="pill-label">🏢 Enterprise SaaS Leaders</text>
+      </g>
+
+      <!-- Pill 2: Open Source -->
+      <g transform="translate(192, 0)">
+        <rect width="185" height="40" rx="8" fill="#1e293b" fill-opacity="0.85" stroke="#334155" stroke-width="1" />
+        <text x="14" y="25" class="pill-label">🔓 Sovereign Open Source</text>
+      </g>
+
+      <!-- Pill 3: Capacity & Governance -->
+      <g transform="translate(389, 0)">
+        <rect width="195" height="40" rx="8" fill="#1e293b" fill-opacity="0.85" stroke="#334155" stroke-width="1" />
+        <text x="14" y="25" class="pill-label">📊 Capacity &amp; Governance</text>
+      </g>
+
+      <!-- Pill 4: Strategy to Execution -->
+      <g transform="translate(596, 0)">
+        <rect width="185" height="40" rx="8" fill="#1e293b" fill-opacity="0.85" stroke="#334155" stroke-width="1" />
+        <text x="14" y="25" class="pill-label">🎯 Strategy-to-Execution</text>
+      </g>
+    </g>
+  </g>
+</svg>
